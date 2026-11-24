@@ -1,19 +1,23 @@
-export const metaTitle = "NextJS Starter";
+export const metaTitle = "CampuzSquare";
+export const metaTagline = "Campus life, served.";
 export const metaDesc =
-  "A TypeScript starter for Next.js 16 that includes App Router, Tailwind CSS 4, shadcn/ui, Built-in SEO, and more.";
-
+  "CampuzSquare brings campus dining, a student marketplace, and everyday services together in one student-verified account. Order ahead, buy and sell nearby, and book trusted help — all from one profile.";
 export const metaKeywords = [
-  "Next.js 16",
-  "React 19",
-  "Tailwind CSS 4",
-  "shadcn/ui",
-  "TypeScript",
-  "App Router",
-  "Turbopack",
-  "Starter Template",
-  "Boilerplate",
-  "Base UI",
+  "CampuzSquare",
+  "Campus Chow",
+  "Campus food ordering",
+  "Student marketplace",
+  "Campus services",
+  "Market Square",
+  "Service Square",
+  "College app",
+  "Student platform",
+  "Order ahead",
+  "Campus dining",
+  "Buy and sell on campus",
 ];
+
+export const SITE_ROUTES = ["", "/features", "/waitlist"] as const;
 
 export const ogSize = {
   width: 1600,
@@ -22,12 +26,12 @@ export const ogSize = {
 
 export const ogImageProps = {
   ...ogSize,
-  alt: "NextJS Starter - Next.js 16, Tailwind CSS 4 & shadcn/ui",
+  alt: "CampuzSquare — food, finds, and favors for campus life",
   contentType: "image/png",
 };
 
 export const defaultOpenGraph = {
-  siteName: "NextJS Starter",
+  siteName: "CampuzSquare",
   images: [
     {
       url: "/images/og.png",

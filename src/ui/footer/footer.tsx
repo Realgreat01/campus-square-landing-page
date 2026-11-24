@@ -1,10 +1,12 @@
 import FooterContentContainer from "./footer-content-container";
-import { Separator } from "@/components/ui/separator";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto">
-      <Separator />
+    <footer className="bg-forest-deep mt-auto text-slate-50">
+      <div
+        aria-hidden="true"
+        className="from-chow via-market to-service h-1 w-full bg-gradient-to-r"
+      />
       <FooterContentContainer />
     </footer>
   );

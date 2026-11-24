@@ -16,12 +16,12 @@ describe("Schema.org generation engine", () => {
       expect(site["@type"]).toBe("WebSite");
       expect(site.url).toBe("http://localhost:3000");
       expect(site["@id"]).toBe("http://localhost:3000/#website");
-      expect(site.name).toBe("NextJS Starter");
+      expect(site.name).toBe("CampuzSquare");
       expect(site.inLanguage).toBe("en-US");
       expect(site.publisher).toEqual({
-        "@type": "Person",
-        name: "Ali Piry",
-        url: "https://github.com/alipiry",
+        "@type": "Organization",
+        name: "CampuzSquare",
+        url: "http://localhost:3000",
       });
     });
 
@@ -30,8 +30,8 @@ describe("Schema.org generation engine", () => {
         siteUrl: "https://custom-domain.com",
         metaTitle: "Custom Title",
         metaDesc: "Custom Description",
-        authorName: "Jane Doe",
-        authorUrl: "https://janedoe.com",
+        organizationName: "Jane Doe",
+        organizationUrl: "https://janedoe.com",
       });
 
       expect(site.url).toBe("https://custom-domain.com");
@@ -39,7 +39,7 @@ describe("Schema.org generation engine", () => {
       expect(site.name).toBe("Custom Title");
       expect(site.description).toBe("Custom Description");
       expect(site.publisher).toEqual({
-        "@type": "Person",
+        "@type": "Organization",
         name: "Jane Doe",
         url: "https://janedoe.com",
       });
@@ -52,19 +52,18 @@ describe("Schema.org generation engine", () => {
 
       expect(app["@type"]).toBe("SoftwareApplication");
       expect(app["@id"]).toBe("http://localhost:3000/#software");
-      expect(app.name).toBe("Next.js TypeScript Tailwind Starter");
-      expect(app.applicationCategory).toBe("DeveloperApplication");
-      expect(app.operatingSystem).toBe("Cross-platform");
-      expect(app.license).toBe("https://opensource.org/licenses/MIT");
+      expect(app.name).toBe("CampuzSquare");
+      expect(app.applicationCategory).toBe("LifestyleApplication");
+      expect(app.operatingSystem).toBe("iOS, Android, Web");
       expect(app.offers).toEqual({
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
       });
-      expect(app.author).toEqual({
-        "@type": "Person",
-        name: "Ali Piry",
-        url: "https://github.com/alipiry",
+      expect(app.publisher).toEqual({
+        "@type": "Organization",
+        name: "CampuzSquare",
+        url: "http://localhost:3000",
       });
     });
   });

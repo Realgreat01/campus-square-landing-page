@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-ts-tailwind-starter",
-  "version": "0.0.1",
-  "description": "A TypeScript starter for Next.js 16 that includes App Router, Tailwind CSS 4, shadcn/ui, and built-in SEO",
+  "name": "campuzsquare-landing-page",
+  "version": "0.1.0",
+  "description": "CampuzSquare — one student-verified account for campus food, finds, and everyday favors.",
   "author": "Ali Piry",
   "license": "MIT",
   "keywords": [

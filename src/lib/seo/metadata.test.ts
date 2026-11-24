@@ -24,9 +24,9 @@ describe("buildSiteMetadata", () => {
         "max-snippet": -1,
       },
     });
-    expect(meta.openGraph?.title).toBe("NextJS Starter");
+    expect(meta.openGraph?.title).toBe("CampuzSquare");
     expect(meta.openGraph?.url).toBe("https://example.com");
-    expect(meta.twitter?.title).toBe("NextJS Starter");
+    expect(meta.twitter?.title).toBe("CampuzSquare");
   });
 
   it("constructs non-production metadata with indexing disabled", () => {
@@ -70,8 +70,8 @@ describe("buildSiteViewport", () => {
     expect(vp.width).toBe("device-width");
     expect(vp.initialScale).toBe(1);
     expect(vp.themeColor).toEqual([
-      { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-      { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+      { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+      { media: "(prefers-color-scheme: dark)", color: "#0b1220" },
     ]);
   });
 });

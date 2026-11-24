@@ -6,14 +6,15 @@ import { cn } from "@/lib/utils";
 import { IS_PRODUCTION, SITE_URL } from "@/config";
 import { buildSiteMetadata, buildSiteViewport } from "@/lib/seo/metadata";
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { JsonLd } from "@/components/json-ld";
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = buildSiteMetadata({
@@ -32,20 +33,17 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("font-sans", inter.variable)}
+      className={cn("font-sans", plusJakarta.variable)}
     >
       <body
         suppressHydrationWarning
-        className={cn(
-          "font-sans antialiased",
-          "flex min-h-screen flex-col justify-between",
-        )}
+        className="flex min-h-screen flex-col font-sans antialiased"
       >
         <JsonLd />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Header />

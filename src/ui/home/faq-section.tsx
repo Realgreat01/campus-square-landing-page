@@ -1,83 +1,79 @@
+import { MessageCircle, Plus } from "lucide-react";
+import { Link } from "@/components/ui/link";
 import Container from "@/components/container";
-import { Badge } from "@/components/ui/badge";
+import { HOME_FAQS } from "@/consts/content";
 import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { HelpCircle } from "lucide-react";
-
-import { buildFaqPageSchema, type FaqItem } from "@/lib/seo/schema";
+  buildFaqPageSchema,
+  serializeJsonLd,
+  type FaqItem,
+} from "@/lib/seo/schema";
 
 export type { FaqItem };
 
-export const faqs: FaqItem[] = [
-  {
-    question: "What makes NextJS Starter different from other templates?",
-    answer:
-      "NextJS Starter is engineered for React 19 and Next.js 16 with pure React Server Components by default, Tailwind CSS v4's CSS-first theme engine, unstyled accessible Base UI primitives, an automated Vitest test suite, and built-in Generative Engine Optimization (GEO) with llms.txt and Schema.org structured data.",
-  },
-  {
-    question: "How does Tailwind CSS v4 work in this starter?",
-    answer:
-      "Tailwind CSS v4 replaces JavaScript configuration with CSS-first directives via @theme inline in globals.css. It natively supports OKLCH color spaces, CSS custom variants for dark mode, container queries, and tw-animate-css without requiring a tailwind.config.js file.",
-  },
-  {
-    question: "How do I add new shadcn/ui components?",
-    answer:
-      "Run `pnpm dlx shadcn add <component-name>` in your terminal. Newly installed components automatically integrate with the configured base-nova design tokens, `@base-ui/react` primitives, and `@/lib/utils` class merging.",
-  },
-  {
-    question: "What testing framework is pre-configured?",
-    answer:
-      "The starter comes pre-configured with Vitest, focusing on fast, pure unit testing of decoupled business logic, custom hooks, SEO schema builders, environment helpers, and utility functions without fragile UI rendering tests.",
-  },
-  {
-    question:
-      "Is this starter optimized for AI search engines like ChatGPT and Perplexity?",
-    answer:
-      "Yes. The starter includes a public/llms.txt manifest, structured SoftwareApplication and FAQPage JSON-LD schema, 100% server-rendered static HTML, and explicitly configured AI crawler directives in robots.ts.",
-  },
-];
+export const faqs: FaqItem[] = HOME_FAQS.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 export default function FaqSection() {
   const faqSchema = buildFaqPageSchema(faqs);
 
   return (
-    <section id="faq" className="border-t py-16 md:py-24">
+    <section id="faq" className="border-border/70 border-t py-20 lg:py-28">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
       <Container>
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 text-center">
-          <Badge variant="outline" className="gap-1.5">
-            <HelpCircle className="size-3.5" />
-            Frequently Asked Questions
-          </Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Everything you need to know
-          </h2>
-          <p className="text-muted-foreground sm:text-lg">
-            Direct, fact-dense answers about architecture, styling, testing, and
-            AI search optimization.
-          </p>
-        </div>
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <span className="border-primary/15 bg-secondary text-primary dark:border-border inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase dark:text-blue-300">
+              <span className="bg-chow size-1.5 rounded-full" />
+              Common questions
+            </span>
+            <h2 className="font-heading mt-5 text-3xl font-extrabold tracking-[-0.025em] text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+              Everything you’re <span className="text-primary">wondering.</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-md text-base leading-relaxed">
+              Straight answers about campuses, safety, pricing, and what launch
+              actually looks like. Still curious? We’re a real inbox.
+            </p>
 
-        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2">
-          {faqs.map((faq) => (
-            <Card key={faq.question} className="h-full">
-              <CardHeader>
-                <CardTitle className="text-base leading-snug font-semibold">
+            <div className="bg-forest shadow-card mt-8 max-w-sm rounded-2xl p-5 text-white">
+              <div className="flex items-center gap-2.5">
+                <span className="grid size-9 place-items-center rounded-xl bg-white/10 text-blue-300">
+                  <MessageCircle className="size-4" />
+                </span>
+                <p className="text-sm font-bold">Talk to the campus team</p>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                Questions about bringing CampuzSquare to your school?
+              </p>
+              <Link
+                href="mailto:campuses@campuzsquare.com"
+                external
+                className="mt-3 inline-flex text-sm font-semibold text-blue-300 underline-offset-4 hover:underline"
+              >
+                campuses@campuzsquare.com
+              </Link>
+            </div>
+          </div>
+
+          <div className="divide-border border-border bg-card shadow-card divide-y overflow-hidden rounded-2xl border">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="group px-5 sm:px-7">
+                <summary className="text-foreground flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-[0.95rem] font-semibold [&::-webkit-details-marker]:hidden">
                   {faq.question}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground pt-1.5 text-sm leading-relaxed">
+                  <span className="border-border text-primary grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-200 group-open:rotate-45">
+                    <Plus className="size-3.5" />
+                  </span>
+                </summary>
+                <p className="text-muted-foreground max-w-2xl pr-8 pb-6 text-sm leading-relaxed">
                   {faq.answer}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -8,44 +8,73 @@ export interface NavItem {
   isButton?: boolean;
 }
 
+export interface FooterNavGroup {
+  title: string;
+  items: readonly NavItem[];
+}
+
+export const WAITLIST_HREF = "/waitlist";
+
 export const HEADER_NAV_ITEMS: readonly NavItem[] = [
   {
+    label: "Platform",
+    href: "/#platform",
+  },
+  {
     label: "Features",
-    href: "#features",
+    href: "/features",
   },
   {
     label: "FAQ",
-    href: "#faq",
+    href: "/#faq",
+  },
+] as const;
+
+export const FOOTER_NAV_GROUPS: readonly FooterNavGroup[] = [
+  {
+    title: "Platform",
+    items: [
+      { label: "Campus Chow", href: "/#campus-chow" },
+      { label: "Market Square", href: "/#market-square" },
+      { label: "Service Square", href: "/#service-square" },
+      { label: "Features", href: "/features" },
+    ],
   },
   {
-    label: "Docs",
-    href: "https://github.com/alipiry/nextjs-ts-tailwind-starter#readme",
-    external: true,
+    title: "Get started",
+    items: [
+      { label: "Join the waitlist", href: WAITLIST_HREF },
+      { label: "How it works", href: "/#how-it-works" },
+      { label: "FAQ", href: "/#faq" },
+    ],
   },
   {
-    label: "GitHub",
-    href: "https://github.com/alipiry/nextjs-ts-tailwind-starter",
-    external: true,
-    isButton: true,
+    title: "Campus partners",
+    items: [
+      {
+        label: "Bring us to your campus",
+        href: "mailto:campuses@campuzsquare.com",
+        external: true,
+      },
+      {
+        label: "Vendor & dining partners",
+        href: "mailto:partners@campuzsquare.com",
+        external: true,
+      },
+      {
+        label: "Student support",
+        href: "mailto:hello@campuzsquare.com",
+        external: true,
+      },
+    ],
   },
 ] as const;
 
 export const FOOTER_NAV_ITEMS: readonly NavItem[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/alipiry/nextjs-ts-tailwind-starter",
-    external: true,
-  },
-  {
-    label: "Documentation",
-    href: "https://github.com/alipiry/nextjs-ts-tailwind-starter#readme",
-    external: true,
-  },
-  {
-    label: "License",
-    href: "https://github.com/alipiry/nextjs-ts-tailwind-starter/blob/main/LICENSE",
-    external: true,
-  },
+  { label: "Platform", href: "/#platform" },
+  { label: "Features", href: "/features" },
+  { label: "Join the waitlist", href: WAITLIST_HREF },
+  { label: "Contact", href: "mailto:hello@campuzsquare.com", external: true },
 ] as const;
 
 export function isExternalNavItem(item: NavItem): boolean {
@@ -53,5 +82,5 @@ export function isExternalNavItem(item: NavItem): boolean {
 }
 
 export function getFooterCopyrightText(year: number = currentYear): string {
-  return `© ${year} NextJS Starter. Built with Next.js, Tailwind CSS & shadcn/ui.`;
+  return `© ${year} CampuzSquare. Built for campus life.`;
 }

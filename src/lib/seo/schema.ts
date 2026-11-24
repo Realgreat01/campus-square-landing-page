@@ -10,8 +10,8 @@ export interface BaseSchemaParams {
   siteUrl?: string;
   metaTitle?: string;
   metaDesc?: string;
-  authorName?: string;
-  authorUrl?: string;
+  organizationName?: string;
+  organizationUrl?: string;
 }
 
 export interface FaqItem {
@@ -30,8 +30,8 @@ export function buildWebSiteEntity(
   const url = params.siteUrl ?? SITE_URL;
   const title = params.metaTitle ?? metaTitle;
   const desc = params.metaDesc ?? metaDesc;
-  const author = params.authorName ?? "Ali Piry";
-  const authorUrl = params.authorUrl ?? "https://github.com/alipiry";
+  const organization = params.organizationName ?? "CampuzSquare";
+  const organizationUrl = params.organizationUrl ?? url;
 
   return {
     "@type": "WebSite",
@@ -41,9 +41,9 @@ export function buildWebSiteEntity(
     description: desc,
     inLanguage: "en-US",
     publisher: {
-      "@type": "Person",
-      name: author,
-      url: authorUrl,
+      "@type": "Organization",
+      name: organization,
+      url: organizationUrl,
     },
   };
 }
@@ -53,31 +53,26 @@ export function buildSoftwareAppEntity(
 ): SchemaEntity {
   const url = params.siteUrl ?? SITE_URL;
   const desc = params.metaDesc ?? metaDesc;
-  const author = params.authorName ?? "Ali Piry";
-  const authorUrl = params.authorUrl ?? "https://github.com/alipiry";
+  const organization = params.organizationName ?? "CampuzSquare";
+  const organizationUrl = params.organizationUrl ?? url;
 
   return {
     "@type": "SoftwareApplication",
     "@id": `${url}/#software`,
-    name: "Next.js TypeScript Tailwind Starter",
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Cross-platform",
-    programmingLanguage: ["TypeScript", "JavaScript", "CSS"],
-    softwareRequirements: "Node.js >= 20.9.0, pnpm >= 11.0.0",
-    softwareVersion: "0.0.1",
+    name: "CampuzSquare",
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "iOS, Android, Web",
     description: desc,
     url,
-    codeRepository: "https://github.com/alipiry/nextjs-ts-tailwind-starter",
-    license: "https://opensource.org/licenses/MIT",
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
     },
-    author: {
-      "@type": "Person",
-      name: author,
-      url: authorUrl,
+    publisher: {
+      "@type": "Organization",
+      name: organization,
+      url: organizationUrl,
     },
   };
 }
@@ -129,7 +124,7 @@ export function buildJsonLdDocument(
 
 /**
  * Safely serializes schema objects to a JSON string for embedding inside HTML script tags.
- * Replaces '<' with unicode '\u003c' to prevent script tag injection and XSS.
+ * Replaces '<' with unicode '<' to prevent script tag injection and XSS.
  */
 export function serializeJsonLd(schema: unknown): string {
   return JSON.stringify(schema).replace(/</g, "\\u003c");

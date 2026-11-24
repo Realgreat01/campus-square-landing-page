@@ -4,6 +4,7 @@ import {
   defaultTwitter,
   metaDesc,
   metaKeywords,
+  metaTagline,
   metaTitle,
 } from "@/consts";
 
@@ -24,20 +25,21 @@ export function buildSiteMetadata({
   title = metaTitle,
   description = metaDesc,
   keywords = metaKeywords,
-  authors = [{ name: "Ali Piry", url: "https://github.com/alipiry" }],
-  creator = "Ali Piry",
-  publisher = "Ali Piry",
+  authors = [{ name: "CampuzSquare" }],
+  creator = "CampuzSquare",
+  publisher = "CampuzSquare",
 }: SiteMetadataOptions): Metadata {
   return {
     title: {
-      template: `%s | ${title}`,
-      default: `${title} — Next.js 16, Tailwind CSS 4 & shadcn/ui`,
+      template: `%s — ${title}`,
+      default: `${title} — ${metaTagline}`,
     },
     description,
     keywords,
     authors,
     creator,
     publisher,
+    applicationName: title,
     formatDetection: {
       telephone: false,
     },
@@ -78,8 +80,8 @@ export function buildSiteViewport(): Viewport {
     width: "device-width",
     initialScale: 1,
     themeColor: [
-      { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-      { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+      { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+      { media: "(prefers-color-scheme: dark)", color: "#0b1220" },
     ],
   };
 }

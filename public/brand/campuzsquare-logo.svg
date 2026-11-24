@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" role="img" aria-labelledby="title desc">
+  <title id="title">CampuzSquare</title>
+  <desc id="desc">CampuzSquare logo — one campus account for food, finds, and favors.</desc>
+  <defs>
+    <linearGradient id="campuzsquare-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6" />
+      <stop offset="1" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="8" width="56" height="56" rx="14" fill="url(#campuzsquare-blue)" />
+  <rect x="14" y="18" width="16" height="16" rx="4.5" fill="#F97316" />
+  <rect x="34" y="18" width="16" height="16" rx="4.5" fill="#10B981" />
+  <rect x="14" y="38" width="16" height="16" rx="4.5" fill="#8B5CF6" />
+  <rect x="34" y="38" width="16" height="16" rx="4.5" fill="#FFFFFF" />
+  <text x="78" y="41" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.8">
+    <tspan fill="#0F172A">Campuz</tspan><tspan fill="#2563EB">Square</tspan>
+  </text>
+  <text x="79" y="59" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="2.4" fill="#64748B">ONE CAMPUS ACCOUNT</text>
+</svg>

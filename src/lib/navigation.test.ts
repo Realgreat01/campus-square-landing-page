@@ -49,7 +49,7 @@ describe("navigation models", () => {
 
   it("formats footer copyright text correctly", () => {
     expect(getFooterCopyrightText(2026)).toBe(
-      "© 2026 NextJS Starter. Built with Next.js, Tailwind CSS & shadcn/ui.",
+      "© 2026 CampuzSquare. Built for campus life.",
     );
   });
 });
