@@ -27,24 +27,39 @@ export default function HeroSection() {
       <Container className="relative">
         <div className="grid items-center gap-14 py-14 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:py-24">
           <div className="flex flex-col items-start">
-            <span className="border-primary/15 bg-secondary text-primary dark:border-border inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase shadow-sm dark:text-blue-300">
+            <span
+              className="border-primary/15 bg-secondary text-primary dark:border-border inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase shadow-sm dark:text-blue-300"
+              data-reveal="fade"
+            >
               <ShieldCheck className="size-3.5" />
               Unified campus account
             </span>
 
-            <h1 className="font-heading mt-6 text-[2.8rem] leading-[1.02] font-extrabold tracking-[-0.035em] text-balance sm:text-6xl lg:text-[4.15rem]">
+            <h1
+              className="font-heading mt-6 text-[2.8rem] leading-[1.02] font-extrabold tracking-[-0.035em] text-balance sm:text-6xl lg:text-[4.15rem]"
+              data-reveal="up"
+              data-reveal-delay={0.08}
+            >
               One campus account.
               <span className="text-primary block">Everything you need.</span>
             </h1>
 
-            <p className="text-muted-foreground mt-6 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
+            <p
+              className="text-muted-foreground mt-6 max-w-xl text-base leading-relaxed text-pretty sm:text-lg"
+              data-reveal="up"
+              data-reveal-delay={0.16}
+            >
               CampuzSquare brings food, finds, and everyday favors together in
               one student-verified account — Campus Chow, Market Square, and
               Service Square. Order ahead, trade down the hall, and book trusted
               help without bouncing between five group chats.
             </p>
 
-            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
+            <div
+              className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center"
+              data-reveal="up"
+              data-reveal-delay={0.24}
+            >
               <Link
                 href={WAITLIST_HREF}
                 className={cn(
@@ -66,7 +81,11 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <ul className="text-muted-foreground mt-8 flex flex-col gap-2.5 text-sm sm:flex-row sm:flex-wrap sm:gap-x-5">
+            <ul
+              className="text-muted-foreground mt-8 flex flex-col gap-2.5 text-sm sm:flex-row sm:flex-wrap sm:gap-x-5"
+              data-reveal="up"
+              data-reveal-delay={0.32}
+            >
               {proofPoints.map((point) => (
                 <li key={point} className="flex items-center gap-2">
                   <span className="bg-primary/10 text-primary grid size-4 place-items-center rounded-full">
@@ -78,7 +97,12 @@ export default function HeroSection() {
             </ul>
           </div>
 
-          <div className="relative lg:pl-4">
+          <div
+            className="relative lg:pl-4"
+            data-reveal="scale"
+            data-reveal-delay={0.2}
+            data-reveal-duration={1}
+          >
             <HeroVisual />
           </div>
         </div>

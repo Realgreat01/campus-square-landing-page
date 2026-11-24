@@ -26,10 +26,12 @@ export default function StatsSection() {
     <section className="border-border/70 bg-card/60 border-y">
       <Container>
         <div className="divide-border/70 grid divide-y py-10 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:py-12">
-          {stats.map((stat) => (
+          {stats.map((stat, index) => (
             <div
               key={stat.label}
               className="flex flex-col gap-1 py-6 first:pt-0 last:pb-0 sm:px-8 sm:py-0 sm:first:pl-0 sm:last:pr-0"
+              data-reveal="up"
+              data-reveal-delay={index * 0.1}
             >
               <p className="font-heading text-ink dark:text-foreground text-4xl font-extrabold tracking-tight lg:text-5xl">
                 {stat.value}

@@ -64,12 +64,14 @@ export default function FoundationSection() {
         />
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-          {foundations.map((foundation) => {
+          {foundations.map((foundation, index) => {
             const Icon = foundation.icon;
             return (
               <div
                 key={foundation.title}
                 className="border-border bg-card dark:hover:bg-muted rounded-2xl border p-6 transition-colors hover:bg-blue-50/60"
+                data-reveal="up"
+                data-reveal-delay={index * 0.08}
               >
                 <span className="bg-primary/10 text-primary dark:bg-secondary dark:text-secondary-foreground grid size-10 place-items-center rounded-xl">
                   <Icon className="size-5" />

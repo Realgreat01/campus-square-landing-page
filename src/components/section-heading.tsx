@@ -9,6 +9,7 @@ export interface SectionHeadingProps {
   className?: string;
   titleClassName?: string;
   descriptionClassName?: string;
+  reveal?: boolean;
 }
 
 export default function SectionHeading({
@@ -19,6 +20,7 @@ export default function SectionHeading({
   className,
   titleClassName,
   descriptionClassName,
+  reveal = true,
 }: SectionHeadingProps) {
   return (
     <div
@@ -27,6 +29,7 @@ export default function SectionHeading({
         align === "center" ? "items-center text-center" : "items-start",
         className,
       )}
+      data-reveal={reveal ? "up" : undefined}
     >
       {eyebrow ? (
         <span className="border-primary/15 bg-secondary text-primary dark:border-border dark:bg-secondary inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase dark:text-blue-300">

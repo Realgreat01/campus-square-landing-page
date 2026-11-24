@@ -54,7 +54,7 @@ export default function PillarsSection() {
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-          {PILLARS.map((pillar) => {
+          {PILLARS.map((pillar, index) => {
             const Icon = pillarIcons[pillar.icon];
             const accent = accentStyles[pillar.accent];
             const featured = pillar.id === "market-square";
@@ -69,6 +69,8 @@ export default function PillarsSection() {
                     ? "via-card to-card dark:via-card dark:to-card border-emerald-200 bg-gradient-to-b from-emerald-50/80 dark:border-emerald-900 dark:from-emerald-950/30"
                     : "border-border bg-card",
                 )}
+                data-reveal="up"
+                data-reveal-delay={index * 0.08}
               >
                 <div
                   aria-hidden="true"
@@ -148,6 +150,8 @@ export default function PillarsSection() {
           <Link
             href="/features"
             className="border-border bg-card text-primary hover:bg-secondary dark:hover:bg-muted inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-colors"
+            data-reveal="up"
+            data-reveal-delay={0.1}
           >
             See every feature
             <ArrowUpRight className="size-4" />

@@ -224,7 +224,11 @@ export default function WaitlistForm() {
   }
 
   return (
-    <div className="border-border bg-card shadow-card rounded-2xl border p-6 sm:p-8">
+    <div
+      className="border-border bg-card shadow-card rounded-2xl border p-6 sm:p-8"
+      data-reveal="up"
+      data-reveal-delay={0.12}
+    >
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="font-heading text-2xl font-extrabold tracking-tight">

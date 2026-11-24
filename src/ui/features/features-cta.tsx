@@ -9,7 +9,11 @@ export default function FeaturesCta() {
   return (
     <section className="border-border/70 border-t pt-16 pb-20 lg:pt-20 lg:pb-28">
       <Container>
-        <div className="from-primary to-core-deep shadow-card relative overflow-hidden rounded-[2rem] bg-gradient-to-br via-blue-600 px-6 py-12 text-center text-white sm:px-10 lg:px-14 lg:py-16">
+        <div
+          className="from-primary to-core-deep shadow-card relative overflow-hidden rounded-[2rem] bg-gradient-to-br via-blue-600 px-6 py-12 text-center text-white sm:px-10 lg:px-14 lg:py-16"
+          data-reveal="scale"
+          data-reveal-duration={0.9}
+        >
           <div
             aria-hidden="true"
             className="bg-dot-grid-light pointer-events-none absolute inset-0 opacity-20"

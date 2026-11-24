@@ -38,25 +38,40 @@ export default function FeaturesHero() {
       <Container className="relative">
         <div className="grid items-end gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-24">
           <div>
-            <span className="border-primary/15 bg-secondary text-primary dark:border-border inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase dark:text-blue-300">
+            <span
+              className="border-primary/15 bg-secondary text-primary dark:border-border inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase dark:text-blue-300"
+              data-reveal="fade"
+            >
               <LayoutGrid className="size-3.5" />
               The CampuzSquare platform
             </span>
 
-            <h1 className="font-heading mt-6 text-[2.7rem] leading-[1.03] font-extrabold tracking-[-0.035em] text-balance sm:text-5xl lg:text-[3.85rem]">
+            <h1
+              className="font-heading mt-6 text-[2.7rem] leading-[1.03] font-extrabold tracking-[-0.035em] text-balance sm:text-5xl lg:text-[3.85rem]"
+              data-reveal="up"
+              data-reveal-delay={0.08}
+            >
               Three squares.
               <span className="text-primary block">
                 One ridiculously useful app.
               </span>
             </h1>
 
-            <p className="text-muted-foreground mt-6 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
+            <p
+              className="text-muted-foreground mt-6 max-w-xl text-base leading-relaxed text-pretty sm:text-lg"
+              data-reveal="up"
+              data-reveal-delay={0.16}
+            >
               Food, secondhand finds, and everyday services shouldn’t live in
               three different apps and five group chats. Here’s exactly what
               lives inside CampuzSquare — and why each square earns its place.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2.5">
+            <div
+              className="mt-8 flex flex-wrap gap-2.5"
+              data-reveal="up"
+              data-reveal-delay={0.24}
+            >
               {PILLARS.map((pillar) => {
                 const Icon = pillarIcons[pillar.icon];
                 return (
@@ -81,7 +96,12 @@ export default function FeaturesHero() {
             </div>
           </div>
 
-          <div className="relative">
+          <div
+            className="relative"
+            data-reveal="scale"
+            data-reveal-delay={0.2}
+            data-reveal-duration={0.9}
+          >
             <div className="bg-forest shadow-card rounded-2xl border border-slate-800 p-6 text-white sm:p-7">
               <div className="flex items-center justify-between">
                 <p className="text-[0.65rem] font-bold tracking-[0.14em] text-slate-400 uppercase">

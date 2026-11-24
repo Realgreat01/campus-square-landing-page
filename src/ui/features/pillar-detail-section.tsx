@@ -65,6 +65,8 @@ export default function PillarDetailSection({
   const Icon = pillarIcons[detail.icon];
   const accent = accentStyles[detail.accent];
   const reversed = index % 2 === 1;
+  const textFrom = reversed ? "right" : "left";
+  const visualFrom = reversed ? "left" : "right";
 
   return (
     <section
@@ -74,7 +76,7 @@ export default function PillarDetailSection({
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div className={cn(reversed && "lg:order-2")}>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3" data-reveal={textFrom}>
               <span
                 className={cn(
                   "grid size-11 place-items-center rounded-2xl shadow-sm",
@@ -91,18 +93,31 @@ export default function PillarDetailSection({
               </div>
             </div>
 
-            <h2 className="font-heading mt-6 text-3xl font-extrabold tracking-[-0.03em] text-balance sm:text-4xl lg:text-[2.8rem] lg:leading-[1.06]">
+            <h2
+              className="font-heading mt-6 text-3xl font-extrabold tracking-[-0.03em] text-balance sm:text-4xl lg:text-[2.8rem] lg:leading-[1.06]"
+              data-reveal={textFrom}
+              data-reveal-delay={0.08}
+            >
               {detail.heading}
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-xl text-base leading-relaxed text-pretty">
+            <p
+              className="text-muted-foreground mt-4 max-w-xl text-base leading-relaxed text-pretty"
+              data-reveal={textFrom}
+              data-reveal-delay={0.16}
+            >
               {detail.description}
             </p>
 
             <div className="mt-9 grid gap-x-7 gap-y-6 sm:grid-cols-2">
-              {detail.features.map((feature) => {
+              {detail.features.map((feature, featureIndex) => {
                 const FeatureIcon = feature.icon;
                 return (
-                  <div key={feature.title} className="flex gap-3">
+                  <div
+                    key={feature.title}
+                    className="flex gap-3"
+                    data-reveal={textFrom}
+                    data-reveal-delay={0.22 + featureIndex * 0.06}
+                  >
                     <span
                       className={cn(
                         "grid size-9 shrink-0 place-items-center rounded-xl",
@@ -128,6 +143,8 @@ export default function PillarDetailSection({
                 "mt-9 inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-75",
                 accent.text,
               )}
+              data-reveal="fade"
+              data-reveal-delay={0.3}
             >
               Get early access to {detail.name}
               <ArrowRight className="size-4" />
@@ -139,6 +156,8 @@ export default function PillarDetailSection({
               "relative",
               reversed ? "lg:order-1" : "lg:justify-self-end",
             )}
+            data-reveal={visualFrom}
+            data-reveal-duration={0.9}
           >
             <div
               aria-hidden="true"

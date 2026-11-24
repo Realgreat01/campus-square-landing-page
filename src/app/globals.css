@@ -218,6 +218,11 @@
   .animate-float-delayed {
     animation: float 8s ease-in-out 1.2s infinite;
   }
+  /* Applied pre-paint by the inline gate in layout.tsx; GSAP removes it once
+     every [data-reveal] target has its initial (hidden) state applied. */
+  .gsap-enabled [data-reveal] {
+    opacity: 0;
+  }
 }
 
 @keyframes float {

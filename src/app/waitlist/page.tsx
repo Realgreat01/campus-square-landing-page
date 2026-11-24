@@ -36,7 +36,11 @@ export default function WaitlistPage() {
             <WaitlistIntro />
             <div className="lg:sticky lg:top-28">
               <WaitlistForm />
-              <p className="text-muted-foreground mt-4 text-center text-xs">
+              <p
+                className="text-muted-foreground mt-4 text-center text-xs"
+                data-reveal="fade"
+                data-reveal-delay={0.24}
+              >
                 Already joined? Watch your inbox for your campus launch email.
               </p>
             </div>

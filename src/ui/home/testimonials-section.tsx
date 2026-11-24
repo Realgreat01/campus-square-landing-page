@@ -46,10 +46,12 @@ export default function TestimonialsSection() {
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-3 lg:mt-16">
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial, index) => (
             <figure
               key={testimonial.name}
               className="border-border bg-card shadow-card relative flex flex-col rounded-2xl border p-6 sm:p-7"
+              data-reveal="up"
+              data-reveal-delay={index * 0.1}
             >
               <Quote
                 aria-hidden="true"

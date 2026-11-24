@@ -10,6 +10,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { JsonLd } from "@/components/json-ld";
+import ScrollReveal from "@/components/animate/scroll-reveal";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -39,6 +40,13 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
         suppressHydrationWarning
         className="flex min-h-screen flex-col font-sans antialiased"
       >
+        {/* Pre-paint gate: hide reveal targets only when motion is welcome.
+            The timer un-hides everything if the JS bundle never boots. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("gsap-enabled");window.setTimeout(function(){document.documentElement.classList.remove("gsap-enabled")},6000)}}catch(e){}`,
+          }}
+        />
         <JsonLd />
         <ThemeProvider
           attribute="class"
@@ -49,6 +57,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <Header />
           {children}
           <Footer />
+          <ScrollReveal />
         </ThemeProvider>
       </body>
     </html>

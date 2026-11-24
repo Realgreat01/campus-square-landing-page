@@ -30,7 +30,7 @@ export default function HowItWorksSection() {
 
       <Container className="relative">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl" data-reveal="up">
             <span className="border-cream/20 text-cream/70 inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[0.68rem] font-semibold tracking-[0.16em] uppercase">
               <span className="size-1.5 rounded-full bg-blue-400" />
               How it works
@@ -48,6 +48,8 @@ export default function HowItWorksSection() {
               buttonVariants({ size: "lg" }),
               "h-12 w-full shrink-0 rounded-full bg-white px-6 text-sm font-semibold text-slate-900 hover:bg-slate-100 sm:w-auto",
             )}
+            data-reveal="up"
+            data-reveal-delay={0.12}
           >
             Get early access
             <ArrowRight className="size-4" />
@@ -61,6 +63,8 @@ export default function HowItWorksSection() {
               <li
                 key={item.step}
                 className="border-cream/15 bg-cream/[0.045] relative flex flex-col rounded-[1.6rem] border p-6 backdrop-blur-sm sm:p-7"
+                data-reveal="up"
+                data-reveal-delay={index * 0.1}
               >
                 <div className="flex items-center justify-between">
                   <span
@@ -86,7 +90,10 @@ export default function HowItWorksSection() {
           })}
         </ol>
 
-        <p className="text-cream/50 mt-8 text-center text-xs">
+        <p
+          className="text-cream/50 mt-8 text-center text-xs"
+          data-reveal="fade"
+        >
           No downloads required at launch. Your campus, your profile, your
           wallet — all in one place.
         </p>
